@@ -1,0 +1,14 @@
+<div>
+    <ul class="list-group" style="width: 100;">
+        <li *ngFor="let user of users">
+            <div class="list-group-item active" 
+                 *ngIf="activeUser == user.name">
+                {{user.name}}
+            </div>
+            <div class="list-group-item" *ngIf="user.name != activeUser"
+                 (click)="changeActiveUser(user)">
+                {{user.name}}
+            </div>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,51 @@
+<div class="container">
+  <br>
+  <div class="row">
+    
+    <div class="col-md-4">
+      Trenutni korisnik: <input [(ngModel)]="currentUser" (keyup.enter)="userChange()" class="form-control" style="width: 180px;">
+      <br> <br> 
+      <form class="from-group mx-auto" style="width: 200px;">
+        <label>Dodaj novi zadatak:</label>
+        <input type="text" class="form-control" #imeZadatka>
+        <br>
+        <button type="button" class="btn btn-outline-info" (click)="addToDo(imeZadatka.value)">Dodaj</button>
+      </form>
+    </div>
+    
+    <div class="col-md-4">
+      <ul class="list-group mx-auto" style="width: 200px;">
+        <li class="list-group-item" *ngFor="let item of toDos">
+            {{item.note}} 
+            <input [checked]="item.done" type="checkbox" (change)="doneChange(item)">
+            <button type="button" class="btn btn-outline-danger btn-sm" (click)="deleteItem(item)">Delete</button>
+         
+        </li>
+      </ul>
+    </div>
+
+    <div class="class col-md-4">
+        Dodaj novog korisnika:
+        <input type="text" class="form-control" #noviUser style="width: 180px;">
+        <button type="button" class="btn btn-outline-success" (click)="newUser(noviUser.value)">Dodaj</button>
+    </div>
+    <div class="col-md-4">
+          
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+       <app-korisnici [activeUser]="currentUser" 
+                      (changeUser)="changeUser($event)"></app-korisnici>
+    </div>
+  </div>
+  
+  <br>
+  <br>
+  
+  
+  
+  
+</div>
+
