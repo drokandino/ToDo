@@ -16,7 +16,12 @@ export class KorisniciComponent implements OnInit {
     @Output("changeUser")
     change = new EventEmitter();
 
-    users = [];
+    @Input()
+    users = [
+        {
+            name:"Ime"
+        }
+    ];
 
     constructor(private http: HttpClient) { }
 
